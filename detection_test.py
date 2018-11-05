@@ -5,7 +5,7 @@ import glob
 import cv2
 import time
 
-PATH_TO_CKPT = 'frozen_inference_graph_33638_truck.pb'
+PATH_TO_CKPT = 'frozen_inference_graph_truc_nohardexample_1028.pb'
 image_path = 'test_images'
 JILV = 0.6
 
@@ -100,8 +100,7 @@ for image in images:
                                                                                                      "<xmax>%d</xmax>\n" \
                                                                                                      "<ymax>%d</ymax>\n" \
                                                                                                      "</bndbox>\n" \
-                                                                                                     "</object>\n" \
-                                                                                                     "</annotation>" % (
+                                                                                                     "</object>\n" % (
                              left, top, right, bottom,)
     listString = listString + "</annotation>"
     print(count)
