@@ -77,8 +77,10 @@ for image in images:
                  "<depth>3</depth>\n" + \
                  "</size>\n" + \
                  "<segmented>0</segmented>\n"
+    isHave = False
     for indx, asdf in enumerate(output_dict["detection_scores"]):
         if (asdf > JILV):
+            isHave = True
             # print(output_dict["detection_boxes"][indx])
             # if (output_dict["detection_classes"][indx] == 7):
             # print(label[output_dict["detection_classes"][indx] - 1], asdf)
@@ -102,11 +104,14 @@ for image in images:
                                                                                                      "</object>\n" \
                                                                                                      "</annotation>" % (
                              left, top, right, bottom,)
-            print(count)
-            fp = open("./test_images/" + str1.replace(".jpg", "") + '.xml', "w")
-            fp.write(listString)
-            fp.close()
-            count += 1
+    listString = listString + "</annotation>"
+    print(count)
+    if (isHave != True):
+        continue
+    fp = open("./test_images/" + str1.replace(".jpg", "") + '.xml', "w")
+    fp.write(listString)
+    fp.close()
+    count += 1
     # for indx,boxes in enumerate(output_dict["detection_boxes"]):
     #     ymin, xmin, ymax, xmax = np.split(boxes,indices_or_sections=4)
     #     (left, right, top, bottom) = (xmin * width, xmax * width,
