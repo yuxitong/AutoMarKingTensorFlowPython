@@ -1,0 +1,30 @@
+item {
+  id: 1
+  name: 'open_eyes'
+}
+item {
+  id: 2
+  name: 'close_eyes'
+}
+item {
+  id: 3
+  name: 'phone'
+}
+item {
+  id: 4
+  name: 'smoke'
+}
+item {
+  id: 5
+  name: 'yawn'
+}
+item {
+  id: 6
+  name: 'side_face'
+}
+item {
+  id: 7
+  name: 'face'
+}
+
+
