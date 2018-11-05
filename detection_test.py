@@ -31,7 +31,6 @@ def load_graph(model_path):
 
 detection_graph = load_graph(PATH_TO_CKPT)
 sess = tf.Session(graph=detection_graph)
-label = ["open_eyes", "close_eyes", "phone", "smoke", "yawn", "side_face", "face"]
 
 for image in images:
     str1 = os.path.basename(image)
@@ -91,7 +90,7 @@ for image in images:
             # print(xmin * im_width, xmax * im_width,
             #                       ymin * im_height, ymax * im_height)
             listString = listString + "<object>\n" \
-                                      "<name>" + label[output_dict["detection_classes"][indx] - 1] + "</name>\n" \
+                                      "<name>" + PATH_TO_LABELS[output_dict["detection_classes"][indx]] + "</name>\n" \
                                                                                                      "<pose>Unspecified</pose>\n" \
                                                                                                      "<truncated>0</truncated>\n" \
                                                                                                      "<difficult>0</difficult>\n" \
